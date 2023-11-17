@@ -12,6 +12,8 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
 }
 
 img{
@@ -20,7 +22,6 @@ img{
 }
 
 body{
-    font-family: 'Outfit';
     background-color: var(--very-dark-blue1);
     min-height: 100vh;
     display: flex;
@@ -33,6 +34,38 @@ body{
     margin:0 auto;
 }
 
+.container .etf-image{
+    position: relative;
+}
+
+/*erstellt das cyanfarbige bild*/
+.container .etf-image div{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    opacity: 0;
+    border-radius: 17px;
+    /*muss ergänzt werden, damit es transparent ist*/
+    background-color: hsl(178, 100%, 50%,60%);
+}
+
+/* damit das cyanfarbige Bild erscheint beim drüber gehen*/
+.container .etf-image div:hover{
+    opacity: 1;
+    cursor: pointer;
+}
+
+/*positioniert das view symbol (bild) auf dem cyanbild*/
+.container .etf-image div img{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
 .card{
     background-color: var(--very-dark-blue2);
     padding: 18px;
@@ -40,10 +73,15 @@ body{
     text-align: center;
 }
 
+.container h2:hover{ /*ändert Farbe von h2 beim darüber gehen*/
+    color: var(--cyan);
+    cursor:pointer;
+}
 .name{
+    margin: 1rem 0rem 0.5rem;
     color: white;
     text-align: left;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 .paragraph{
@@ -52,16 +90,61 @@ body{
     font-size: 18px;
 }
 
-.eth{
+.container ul{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--soft-blue);
+    list-style-type: none;
+}
+
+container ul li{
+    display:flex;
+    align-items:center;
+    
+}
+
+/*ändert Farbe für "ETH"*/
+.container ul li:first-child{
     color: var(--cyan);
 }
 
-.days{
-    color: var(--very-dark-blue3);
+
+.container ul li img{
+    margin-right: 0.5rem;
 }
 
+/*ändert Farbe für "days"*/
+.container li:nth-child(2){
+    color: var(--soft-blue);
+}
 
-.name{
+.container .avatar{
+    display:flex;
+    align-items:center;
+    justify-content: start;
+    padding-top: 0rem;
+}
+
+.container .avatar img{
+    width: 3rem;
+    border: 2px solid var(--white); /*Rand um avatar*/
+    border-radius: 50%;
+    margin-right: 1rem;
+}
+
+.container .avatar p{
+    color: var(--soft-blue);
+}
+/*Jules Wyvern*/
+.container .avatar p span{
     color: var(--white);
-    text-align: left;
+    font-weight: 400;
+}
+
+/*Jules Wyvern ändern*/
+.container .avatar p span:hover{
+    color: var(--cyan);
+    font-weight: 400;
 }
